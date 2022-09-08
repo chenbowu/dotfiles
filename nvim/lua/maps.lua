@@ -1,26 +1,51 @@
-local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
+
+local keymap = vim.keymap.set
+
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Modes
+--   normal_mode = 'n',
+--   insert_mode = 'i',
+--   visual_mode = 'v',
+--   visual_block_mode = 'x',
+--   term_mode = 't',
+--   command_mode = 'c',
+
+-- Press jk fast to exit insert mode
+keymap("i", "jj", "<ESC>", opts)
 
 -- Do not yank with x
-keymap.set('n', 'x', '"_x')
+keymap('n', 'x', '"_x')
 
 -- Increment/decrement
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
+keymap('n', '+', '<C-a>')
+keymap('n', '-', '<C-x>')
 
 -- Delete a word backwards
-keymap.set('n', 'dw', 'vb"_d')
+keymap('n', 'dw', 'vb"_d')
 
 -- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
+keymap('n', '<C-a>', 'gg<S-v>G')
+
+-- Move cursor
+keymap("n", "H", "^", opts)
+keymap("n", "L", "$", opts)
+keymap("v", "H", "^", opts)
+keymap("v", "L", "$", opts)
 
 -- New tab
-keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
+keymap('n', 'te', ':tabedit<Return>', { silent = true })
 -- Split window
-keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
-keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
+keymap('n', 'ss', ':split<Return><C-w>w', { silent = true })
+keymap('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
 -- Move window
-keymap.set('n', '<Space>', '<C-w>w')
-keymap.set('', '<C-j>', '<C-w>j')
-keymap.set('', '<C-k>', '<C-w>k')
-keymap.set('', '<C-l>', '<C-w>l')
-keymap.set('', '<C-h>', '<C-w>h')
+keymap('n', '<Space>', '<C-w>w')
+keymap('', '<C-j>', '<C-w>j')
+keymap('', '<C-k>', '<C-w>k')
+keymap('', '<C-l>', '<C-w>l')
+keymap('', '<C-h>', '<C-w>h')

@@ -3,6 +3,7 @@ if (not status) then return end
 
 lualine.setup {
   options = {
+    mode = "buffer", -- set to "tabs" to only show tabpages instead
     icons_enabled = true,
     theme = 'solarized_dark',
     section_separators = { left = '', right = '' },
@@ -10,7 +11,9 @@ lualine.setup {
     disabled_filetypes = {}
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = {
+      'mode',
+    },
     lualine_b = { 'branch' },
     lualine_c = { {
       'filename',
