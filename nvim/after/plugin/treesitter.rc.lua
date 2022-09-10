@@ -18,5 +18,8 @@ ts.setup {
   },
   autotag = {
     enable = true,
+  },
+  context_commentstring = {
+    enable = true
   }
 }

@@ -29,6 +29,50 @@ packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
 
+  use 'karb94/neoscroll.nvim' -- Smooth scrolling
+
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+  use {
+    'numToStr/Comment.nvim',
+     config = function()
+      require('Comment').setup {
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      }
+    end,
+  }
+  use {
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup()
+    end,
+  }
+  use {
+    'ggandor/lightspeed.nvim',
+    config = function()
+      require('lightspeed').setup {
+        exit_after_idle_msecs = {
+          labeled = 1500,
+          -- Increase timeout for f/t keys
+          unlabeled = 3000,
+        },
+      }
+    end,
+  }
+
+
+  -- use {
+  --   'rcarriga/nvim-notify',
+  --   config = function()
+  --     require 'j.plugins.notify'
+  --   end,
+  --   requires = { 'palenightfall.nvim' },
+  -- }
+
+  use 'tpope/vim-repeat' -- Make repeat (.) command smarter
+  -- use 'tpope/vim-commentary'
+  -- use 'tpope/vim-surround'
+
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
 
@@ -36,11 +80,21 @@ packer.startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
 
+  -- use 'yamatsum/nvim-cursorline' -- Highlight words and lines
+  use 'miyakogi/conoline.vim'
+
+  use 'mattn/emmet-vim'
   use 'akinsho/nvim-bufferline.lua'
   use "tiagovla/scope.nvim"
   use 'norcalli/nvim-colorizer.lua'
 
   use 'lewis6991/gitsigns.nvim'
-  use 'dinhhuy258/git.nvim' -- For git blame & browse
+  -- use 'dinhhuy258/git.nvim' -- For git blame & browse
+  -- Git
+  -- I only use the "blame" feature from this
+  use {
+    'tpope/vim-fugitive',
+    cmd = { 'Git', 'G', 'Gstatus', 'Gblame', 'Gpush', 'Gpull', 'Gdiff' },
+  }
 
 end)
