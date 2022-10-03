@@ -19,6 +19,9 @@ vim.g.maplocalleader = " "
 -- Press jk fast to exit insert mode
 keymap("i", "jj", "<ESC>", opts)
 
+-- No search highlight
+keymap("n", "<C-n>", ":nohl<Return>", { silent = true })
+
 -- Do not yank with x
 keymap('n', 'x', '"_x')
 
