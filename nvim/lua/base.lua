@@ -12,7 +12,7 @@ vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.laststatus = 2
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
@@ -33,8 +33,8 @@ vim.opt.wildignore:append { '*/node_modules*' }
 
 -- Trun off paste mode when leaving insert
 vim.api.nvim_create_autocmd('InsertLeave', {
-    pattern = '*',
-    command = 'set nopaste'
+  pattern = '*',
+  command = 'set nopaste'
 })
 
 vim.opt.formatoptions:append { 'r' }
