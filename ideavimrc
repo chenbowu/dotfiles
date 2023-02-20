@@ -1,0 +1,107 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+let mapleader=";"
+set scrolloff=10
+
+" Search improvements
+set ignorecase " tells Vim to use case-insensitive search by default.
+set smartcase " tells Vim that if any of the search characters are uppercase, treat the search as case-sensitive.
+set incsearch " tells Vim to start searching as you type, rather than waiting for you to submit the complete search string first.
+set hlsearch " ensures all of the search results are highlighted.
+
+set number 
+set relativenumber
+set clipboard=unnamed
+" Emulated plugins
+set surround
+set highlightedyank
+set easymotion
+set keep-english-in-normal
+set nerdtree
+set multiple-cursors
+" Use Idea to join lines smartly
+set ideajoin
+
+" move //window 
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+
+nmap <c-n> :nohl<CR>
+" quick jump 
+map L $
+map H ^
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+map Y y$
+map D d$
+
+"Refactor
+
+nnoremap gh :action QuickJavaDoc<CR>
+"Rename
+nnoremap <Leader>re :action RenameElement<CR>
+nnoremap <Leader>gi :action GotoImplementation<CR>
+nnoremap <Leader>im :action ImplementMethods<CR>
+nnoremap <Leader>rv :action IntroduceVariable<CR>
+nnoremap <Leader>cr :action CopyReference<CR>
+nnoremap <Leader>em :action ExtractMethod<CR>
+nnoremap <Leader>sw :action SurroundWith<CR>
+nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+
+" Won't work in visual mode (with vmap) for some reason.
+" Use default map of <c-/> for that.
+nmap gcc :action CommentByLineComment<cr>
+vmap gcc :action CommentByLineComment<cr>
+
+" unimpaired mappings - from https://github.com/saaguero/ideavimrc/blob/master/.ideavimrc
+nnoremap [<space> O<esc>j
+nnoremap ]<space> o<esc>k
+nnoremap [q :action PreviousOccurence<cr>
+nnoremap ]q :action NextOccurence<cr>
+" Jump between methods
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+" Tabs
+nnoremap [b :action PreviousTab<cr>
+nnoremap ]b :action NextTab<cr>
+
+" Moving lines
+nmap [e :action MoveLineUp<cr>
+nmap ]e :action MoveLineDown<cr>
+" Moving statements
+nmap [s :action MoveStatementUp<cr>
+nmap ]s :action MoveStatementDown<cr>
+
+" Open NERDTree (use q to exit)
+map <leader>x :NERDTreeToggle<CR>
+
+" Folding
+" map <leader>zc :action CollapseAllRegions<CR>
+" map <leader>zo :action ExpandAllRegions<CR>
+" Also can use zc and zo
+
+" Popup navigation
+" inoremap <C-j> <Action>(PopupMenu-selectNext)
+" inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
