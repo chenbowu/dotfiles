@@ -102,8 +102,16 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 
+alias weather="curl 'wttr.in'"
+alias tsn="ts-node"
+alias tsnd="ts-node-dev"
+
+
+export hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+export https_proxy="http://${hostip}:7890"
+export http_proxy="http://${hostip}:7890"
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
