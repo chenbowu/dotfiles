@@ -105,3 +105,4 @@ map <leader>x :NERDTreeToggle<CR>
 
 
 " Find more examples here: https://jb.gg/share-ideavimrc
+set clipboard+=ideaput
