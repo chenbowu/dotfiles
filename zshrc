@@ -119,7 +119,7 @@ alias tsn="ts-node"
 alias tsnd="ts-node-dev"
 
 # linux runing on wsl environment
-if (uname -r | grep 'microsoft'); 
+if (uname -r | grep -q 'microsoft'); 
 then   
   export hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 else
