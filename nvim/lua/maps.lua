@@ -44,8 +44,8 @@ keymap("v", "L", "$", opts)
 -- New tab
 keymap('n', 'te', ':tabedit<Return>', { silent = true })
 -- Split window
-keymap('n', 'ss', ':split<Return><C-w>w', { silent = true })
-keymap('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
+-- keymap('n', 'ss', ':split<Return><C-w>w', { silent = true })
+-- keymap('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
 -- Move window
 keymap('n', '<Space>', '<C-w>w')
 keymap('', '<C-j>', '<C-w>j')
