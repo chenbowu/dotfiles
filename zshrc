@@ -114,11 +114,16 @@ alias weather="curl 'wttr.in'"
 alias tsn="ts-node"
 alias tsnd="ts-node-dev"
 
+# linux runing on wsl environment
+if uname -r | grep -q 'Microsoft'; 
+then   
+  export hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+else
+  export hostip="localhost"
+fi
 
-export hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 export https_proxy="http://${hostip}:7890"
 export http_proxy="http://${hostip}:7890"
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
