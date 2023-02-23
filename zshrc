@@ -70,7 +70,11 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+  fast-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,6 +105,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="nvim"
 alias vim="nvim"
+
+alias ls="exa"
+alias ll="exa --long --header --git --icons"
+alias tree="ll --tree --level=4 -a -I=.git --git-ignore"
 
 alias weather="curl 'wttr.in'"
 alias tsn="ts-node"
