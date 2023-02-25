@@ -1,5 +1,5 @@
 local status, bufferline = pcall(require, 'bufferline')
-if (not status) then return end 
+if (not status) then return end
 
 bufferline.setup {
   options = {
@@ -21,6 +21,10 @@ bufferline.setup {
     background = {
       fg = '#657b83',
       bg = '#002b36'
+    },
+    buffer_selected = {
+      fg = '#fdf6e3',
+      bold = true,
     },
     fill = {
       bg = '#073642'
