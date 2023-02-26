@@ -107,19 +107,7 @@ packer.startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   })
 
-  -- use {
-  --     'glepnir/dashboard-nvim',
-  --     event = 'VimEnter',
-  --     config = function()
-  --       require('dashboard').setup {
-  --           theme = 'hyper',
-  --           config = {
-  --           }
-  --           --config
-  --       }
-  --     end,
-  --     requires = { 'nvim-tree/nvim-web-devicons' }
-  -- }
+  -- quick jump
   use({
     'ggandor/leap.nvim',
     config = function()
@@ -127,29 +115,9 @@ packer.startup(function(use)
     end
   })
 
-  -- use({
-  --   'folke/noice.nvim',
-  --   config = function()
-  --     require('noice').setup({
-  --       lsp = {
-  --         override = {
-  --           ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-  --           ['vim.lsp.util.stylize_markdown'] = true,
-  --           ['cmp.entry.get_documentation'] = true,
-  --         },
-  --       },
-  --       presets = {
-  --         bottom_search = true,
-  --         command_palette = true,
-  --         long_message_to_split = true,
-  --         inc_rename = false,
-  --         lsp_doc_border = false,
-  --       }
-  --     })
-  --   end,
-  --   requires = {
-  --     'MunifTanjim/nui.nvim',
-  --     'rcarriga/nvim-notify'
-  --   }
-  -- })
+  use {
+    'kkoomen/vim-doge',
+    run = ':call doge#install()'
+  }
+
 end)
